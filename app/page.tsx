@@ -77,6 +77,7 @@ const averageSetup = [
         <Server />
         <Server />
         <Server />
+        <Server />
       </>
     ),
   },
