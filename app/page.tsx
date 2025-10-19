@@ -1,4 +1,5 @@
 import HomelabScroller from "@/components/homelabscroller";
+import { Separator } from "@/components/ui/separator";
 import {
   EthernetPort,
   HardDrive,
@@ -111,6 +112,12 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="m-10 relative p-3 max-w-4xl mx-auto">
+          <Separator className="absolute inset-0 top-1/2" />
+          <span className="bg-background text-muted-foreground relative mx-auto block w-fit px-2">
+            vs
+          </span>
         </div>
         <div className="p-4 flex flex-col gap-2 max-w-4xl mx-auto">
           <h2 className="text-2xl">Average setup on r/homelab</h2>
