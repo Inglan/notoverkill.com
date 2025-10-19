@@ -12,6 +12,7 @@ export default function Home() {
           If you don't believe me, look at these setups:
         </h2>
         <HomelabScroller />
+        <div className="text-foreground/50 text-sm">From r/homelab</div>
       </div>
     </>
   );
