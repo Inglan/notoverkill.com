@@ -49,7 +49,7 @@ const averageSetup = [
     icon: <HardDrive />,
   },
   {
-    title: "3x 48 Port PoE+++ switch",
+    title: "2x 48 Port PoE+++ switch",
     description: "All ports used",
     icon: <EthernetPort />,
   },
