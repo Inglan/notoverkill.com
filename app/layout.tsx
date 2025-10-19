@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Header from "@/components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,13 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-full border-b">
-          <div className="container mx-auto p-2 flex flex-row">
-            <Image src="/notoverkill.svg" alt="Logo" width={100} height={100} />
-            <div className="grow"></div>
-            <Button>Log in</Button>
-          </div>
-        </div>
+        <Header />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
