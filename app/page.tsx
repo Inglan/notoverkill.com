@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <main className="container mx-auto">
-        <div className="h-96 flex justify-center flex-col gap-2 p-2 max-w-4xl mx-auto">
+        <div className="h-96 flex justify-center flex-col gap-4 p-2 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl">
             My homelab
             <br />
