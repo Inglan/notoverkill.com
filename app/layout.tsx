@@ -22,12 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistMono.className} antialiased`}>
         <Header />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" forcedTheme="dark">
           {children}
         </ThemeProvider>
       </body>
