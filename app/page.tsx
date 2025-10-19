@@ -157,7 +157,7 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="text-sm p-4 py-15 max-w-4xl mx-auto items-center justify-center flex">
+        <footer className="text-sm p-4 py-15 max-w-4xl mx-auto items-center justify-center flex">
           <div className="border border-dashed p-4">
             This website is built in Next.js and is{" "}
             <Link
@@ -168,7 +168,7 @@ export default function Home() {
               open source
             </Link>
           </div>
-        </div>
+        </footer>
       </main>
     </>
   );
