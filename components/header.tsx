@@ -9,9 +9,9 @@ export default function Header() {
         <nav className="max-w-4xl mx-auto p-2 flex flex-row">
           <Image src="/notoverkill.svg" alt="Logo" width={100} height={100} />
           <div className="grow"></div>
-          <Button asChild>
+          {/*<Button asChild>
             <Link href="https://sso.notoverkill.com">Log in</Link>
-          </Button>
+          </Button>*/}
         </nav>
       </div>
     </div>
