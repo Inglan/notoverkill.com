@@ -71,7 +71,7 @@ export default function HomelabScroller() {
       <CarouselContent>
         {images.map((image) => {
           return (
-            <CarouselItem className="md:basis-1/4 sm:basis-1/2" key={image.url}>
+            <CarouselItem className="basis-1/2 md:basis-1/3" key={image.url}>
               <Link href={image.link} target="_blank">
                 <Image
                   width={500}
