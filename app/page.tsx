@@ -9,6 +9,7 @@ import {
   Container,
   Gauge,
 } from "lucide-react";
+import Link from "next/link";
 
 const mySetup = [
   {
@@ -146,6 +147,26 @@ export default function Home() {
           <HomelabScroller />
           <div className="text-foreground/50 text-sm">
             From r/homelab, original posts are linked
+          </div>
+        </div>
+        <div className="p-4 flex flex-col gap-2 max-w-4xl mx-auto">
+          <h2 className="text-2xl">
+            See? Not overkill at all. Just because I have a bit of enterprise
+            networking gear and a slight docker addiction doesn't mean my setup
+            is overkill.
+          </h2>
+        </div>
+
+        <div className="text-sm p-4 py-15 max-w-4xl mx-auto items-center justify-center flex">
+          <div className="border border-dashed p-4">
+            This website is built in Next.js and is{" "}
+            <Link
+              href="https://github.com/Inglan/notoverkill.com"
+              target="_blank"
+              className="underline"
+            >
+              open source
+            </Link>
           </div>
         </div>
       </main>
