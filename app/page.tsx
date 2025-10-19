@@ -5,8 +5,10 @@ export default function Home() {
     <>
       <main className="container mx-auto">
         <div className="h-96 flex justify-center flex-col gap-2 p-2 max-w-4xl mx-auto">
-          <h1 className="text-4xl">
-            My homelab is <br /> not overkill
+          <h1 className="text-4xl md:text-6xl">
+            My homelab
+            <br />
+            <span className="text-primary">is not overkill</span>
           </h1>
           <h2 className="text-xl">Not even a bit</h2>
         </div>
