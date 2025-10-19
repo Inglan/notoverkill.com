@@ -142,7 +142,7 @@ export default function Home() {
         </div>
         <div className="p-4 flex flex-col gap-2 max-w-4xl mx-auto">
           <h2 className="text-2xl">
-            If you don't believe me, look at these setups:
+            If you don&apos;t believe me, look at these setups:
           </h2>
           <HomelabScroller />
           <div className="text-foreground/50 text-sm">
@@ -152,8 +152,8 @@ export default function Home() {
         <div className="p-4 flex flex-col gap-2 max-w-4xl mx-auto">
           <h2 className="text-2xl">
             See? Not overkill at all. Just because I have a bit of enterprise
-            networking gear and a slight docker addiction doesn't mean my setup
-            is overkill.
+            networking gear and a slight docker addiction doesn&apos;t mean my
+            setup is overkill.
           </h2>
         </div>
 
