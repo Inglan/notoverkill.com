@@ -58,7 +58,15 @@ export default function HomelabScroller() {
   return (
     <Carousel
       opts={{ dragFree: true, loop: true }}
-      plugins={[AutoScroll({ active: true, startDelay: 0, speed: 0.5 })]}
+      plugins={[
+        AutoScroll({
+          active: true,
+          startDelay: 0,
+          speed: 0.5,
+          stopOnInteraction: false,
+        }),
+      ]}
+      className="rounded overflow-hidden"
     >
       <CarouselContent>
         {images.map((image) => {
@@ -77,8 +85,6 @@ export default function HomelabScroller() {
           );
         })}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
   );
 }
