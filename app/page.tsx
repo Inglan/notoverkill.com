@@ -6,9 +6,10 @@ import {
   Server,
   HomeIcon,
   Container,
+  Gauge,
 } from "lucide-react";
 
-const gear = [
+const mySetup = [
   {
     title: "UniFi Dream Machine Pro",
     description: "Yes, I need it, no, it's not overkill at all",
@@ -41,6 +42,44 @@ const gear = [
     icon: <HomeIcon />,
   },
 ];
+const averageSetup = [
+  {
+    title: "2 gateways",
+    description: 'For "redundancy" or something',
+    icon: <HardDrive />,
+  },
+  {
+    title: "3x 48 Port PoE+++ switch",
+    description: "All ports used",
+    icon: <EthernetPort />,
+  },
+  {
+    title: "200+ TB storage array",
+    description: "1% usage",
+    icon: <Server />,
+  },
+  {
+    title: "10Gbe everywhere",
+    description: 'Because "why not"',
+    icon: <Gauge />,
+  },
+  {
+    title: "Kubernetes cluster",
+    description: "With at least 6 nodes",
+    icon: <Container />,
+  },
+  {
+    title: "42U rack",
+    description: "For all the kubernetes nodes",
+    icon: (
+      <>
+        <Server />
+        <Server />
+        <Server />
+      </>
+    ),
+  },
+];
 
 export default function Home() {
   return (
@@ -57,12 +96,31 @@ export default function Home() {
         <div className="p-4 flex flex-col gap-2 max-w-4xl mx-auto">
           <h2 className="text-2xl">My setup</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {gear.map((item, index) => (
+            {mySetup.map((item, index) => (
               <div
                 key={index}
                 className="border p-4 flex flex-row gap-4 items-start"
               >
-                <div className="bg-card aspect-square flex items-center justify-center p-2">
+                <div className="bg-card aspect-square flex items-center justify-center p-2 flex-col">
+                  {item.icon}
+                </div>
+                <div className="flex flex-col">
+                  <h2 className="text-xl">{item.title}</h2>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="p-4 flex flex-col gap-2 max-w-4xl mx-auto">
+          <h2 className="text-2xl">Average setup on r/homelab</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {averageSetup.map((item, index) => (
+              <div
+                key={index}
+                className="border p-4 flex flex-row gap-4 items-start"
+              >
+                <div className="bg-card aspect-square flex items-center justify-center p-2 flex-col">
                   {item.icon}
                 </div>
                 <div className="flex flex-col">
