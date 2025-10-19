@@ -1,13 +1,4 @@
-import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-
-const homelabs = [];
+import HomelabScroller from "@/components/homelabscroller";
 
 export default function Home() {
   return (
@@ -16,19 +7,11 @@ export default function Home() {
         <h1 className="text-4xl">My homelab is not overkill</h1>
         <h2 className="text-xl">Not even a bit</h2>
       </div>
-      <div className="container mx-auto p-2">
+      <div className="container mx-auto p-2 flex flex-col gap-2">
         <h2 className="text-2xl">
           If you don't believe me, look at these setups:
         </h2>
-        <Carousel>
-          <CarouselContent>
-            <CarouselItem>...</CarouselItem>
-            <CarouselItem>...</CarouselItem>
-            <CarouselItem>...</CarouselItem>
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        <HomelabScroller />
       </div>
     </>
   );
