@@ -14,7 +14,7 @@ export default function Header() {
             height={76 / 2}
           />
           <div className="grow"></div>
-          <Button className="hidden" asChild>
+          <Button asChild>
             <Link href="https://sso.notoverkill.com">Log in</Link>
           </Button>
         </nav>
