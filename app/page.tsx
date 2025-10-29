@@ -151,9 +151,9 @@ export default function Home() {
         </div>
         <div className="p-4 flex flex-col gap-2 max-w-4xl mx-auto">
           <h2 className="text-2xl">
-            See? Not overkill at all. Just because I have a bit of enterprise
-            networking gear and a slight docker addiction doesn&apos;t mean my
-            setup is overkill.
+            You see? Not overkill at all. Just because I have a bit of
+            enterprise networking gear and a slight docker addiction
+            doesn&apos;t mean my setup is overkill.
           </h2>
         </div>
 
