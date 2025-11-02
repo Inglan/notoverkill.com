@@ -27,6 +27,15 @@ export function ClientProviders({ children }: { children: ReactNode }) {
           router.refresh();
         }}
         Link={Link}
+        genericOAuth={{
+          providers: [{ name: "notoverkill", provider: "notoverkill" }],
+        }}
+        credentials={false}
+        signUp={false}
+        account={{
+          fields: [],
+          basePath: "https://sso.notoverkill.com/if/user/#/",
+        }}
       >
         {children}
       </AuthUIProvider>
