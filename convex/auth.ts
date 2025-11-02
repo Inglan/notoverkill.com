@@ -39,7 +39,7 @@ export const createAuth = (
             clientId: clientId,
             clientSecret: clientSecret,
             discoveryUrl: discoveryUrl,
-            scopes: ["goauthentik.io/api", "email", "openid", "profile"],
+            scopes: ["openid", "email", "profile", "goauthentik.io/api"],
           },
         ],
       }),
