@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Button } from "./ui/button";
 import Link from "next/link";
+import LoginButton from "./login-button";
 
 export default function Header() {
   return (
@@ -14,9 +14,7 @@ export default function Header() {
             height={76 / 2}
           />
           <div className="grow"></div>
-          <Button asChild>
-            <Link href="https://sso.notoverkill.com">Log in</Link>
-          </Button>
+          <LoginButton />
         </nav>
       </div>
     </div>
