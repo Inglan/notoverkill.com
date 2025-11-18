@@ -1,18 +1,10 @@
+"use client";
+
 import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
+import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
 
-export default async function Sso() {
-  const headersList = await headers();
-
-  const data = await auth.api.signInWithOAuth2({
-    headers: headersList,
-    body: {
-      providerId: "notoverkill",
-    },
-  });
-
-  if (data.redirect) {
-    redirect(data.url);
-  }
+export default function Sso() {
+  authClient.signIn.oauth2({ providerId: "notoverkill" });
+  return <></>;
 }
