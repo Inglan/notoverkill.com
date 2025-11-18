@@ -77,7 +77,7 @@ export default async function AppsPage() {
       <h1 className="text-4xl">Apps</h1>
 
       {ungroupedApps.length > 0 && (
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {ungroupedApps.map((app) => (
             <AppCard
               key={app.pk}
@@ -91,7 +91,7 @@ export default async function AppsPage() {
       {sortedGroupNames.map((groupName) => (
         <div key={groupName} className="flex flex-col gap-4">
           <h2 className="text-2xl">{groupName}</h2>
-          <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
             {groupedApps[groupName].map((app) => (
               <AppCard
                 key={app.pk}
