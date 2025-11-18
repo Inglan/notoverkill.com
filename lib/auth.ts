@@ -8,4 +8,7 @@ export const auth = betterAuth({
       rejectUnauthorized: false,
     },
   }),
+  emailAndPassword: {
+    enabled: true,
+  },
 });
