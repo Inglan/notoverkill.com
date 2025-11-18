@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@daveyplate/better-auth-ui": "^3.2.9",
+    "@goauthentik/api": "^2025.6.3-1751754396",
     "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "better-auth": "^1.3.34",
