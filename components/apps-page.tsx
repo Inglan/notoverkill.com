@@ -28,7 +28,7 @@ export default async function AppsPage() {
   return (
     <div className="w-full max-w-4xl mx-auto p-2 flex flex-col gap-2">
       <h1 className="text-4xl">Apps</h1>
-      <div className="w-full grid grid-cols-3 gap-2">
+      <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-2">
         {applications.results.map((app) => (
           <Link
             className="flex flex-col items-center justify-center p-4 bg-card rounded border text-center gap-2"
