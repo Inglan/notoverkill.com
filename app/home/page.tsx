@@ -102,9 +102,9 @@ export default function Home() {
             {mySetup.map((item, index) => (
               <div
                 key={index}
-                className="border p-4 flex flex-row gap-4 items-start"
+                className="border p-4 flex flex-row gap-4 items-start rounded-lg"
               >
-                <div className="bg-card aspect-square flex items-center justify-center p-2 flex-col">
+                <div className="bg-card aspect-square flex items-center justify-center p-2 flex-col rounded-lg">
                   {item.icon}
                 </div>
                 <div className="flex flex-col">
@@ -127,9 +127,9 @@ export default function Home() {
             {averageSetup.map((item, index) => (
               <div
                 key={index}
-                className="border p-4 flex flex-row gap-4 items-start"
+                className="border p-4 flex flex-row gap-4 items-start rounded-lg"
               >
-                <div className="bg-card aspect-square flex items-center justify-center p-2 flex-col">
+                <div className="bg-card aspect-square flex items-center justify-center p-2 flex-col rounded-lg">
                   {item.icon}
                 </div>
                 <div className="flex flex-col">
@@ -158,7 +158,7 @@ export default function Home() {
         </div>
 
         <footer className="text-sm p-4 py-15 max-w-4xl mx-auto items-center justify-center flex">
-          <div className="border border-dashed p-4">
+          <div className="border border-dashed p-4 rounded-lg">
             This website is built in Next.js and is{" "}
             <Link
               href="https://github.com/Inglan/notoverkill.com"

@@ -74,7 +74,7 @@ export default function HomelabScroller() {
                 <Image
                   width={500}
                   height={500}
-                  className="aspect-square object-cover rounded"
+                  className="aspect-square object-cover rounded-lg"
                   src={"/homelabs/" + image.url}
                   alt=""
                 />
