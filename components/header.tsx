@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <div className="w-full border-b bg-background/50 sticky top-0 backdrop-blur-xl z-50">
       <div className="container mx-auto">
-        <nav className="max-w-4xl mx-auto p-2 flex flex-row">
+        <nav className="max-w-4xl mx-auto h-15 flex flex-row items-center">
           <Link href="/">
             <Image
               src="/notoverkill.svg"
