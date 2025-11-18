@@ -1,0 +1,16 @@
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { redirect, RedirectType } from "next/navigation";
+
+export default async function SignOut() {
+  const headersList = await headers();
+
+  await auth.api.signOut({
+    headers: headersList,
+  });
+
+  redirect(
+    process.env.AUTHENTIK_SERVER + "/if/flow/default-invalidation-flow/",
+    RedirectType.replace,
+  );
+}
