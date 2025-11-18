@@ -39,9 +39,9 @@ export default async function AppsPage() {
             {app.metaIcon && (
               <Image
                 alt={app.name}
-                className="w-10 h-10"
-                width={32}
-                height={32}
+                className="size-14"
+                width={56}
+                height={56}
                 src={process.env.AUTHENTIK_SERVER! + app.metaIcon}
               />
             )}
