@@ -1,6 +1,6 @@
 "use client";
 
-// import { authClient } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { Button } from "./ui/button";
 
 export default function LoginButton() {
@@ -9,9 +9,9 @@ export default function LoginButton() {
     <Button
       // disabled={convexAuth.isLoading || convexAuth.isAuthenticated}
       onClick={() => {
-        // authClient.signIn.oauth2({
-        //   providerId: "notoverkill",
-        // });
+        authClient.signIn.oauth2({
+          providerId: "notoverkill",
+        });
       }}
     >
       Log in
