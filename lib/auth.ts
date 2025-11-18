@@ -27,6 +27,7 @@ export const auth = betterAuth({
             "goauthentik.io/api",
             "offline_access",
           ],
+          accessType: "offline",
         },
       ],
     }),
