@@ -25,7 +25,7 @@ export function Providers({ children }: { children: ReactNode }) {
         providers: [{ name: "notoverkill", provider: "notoverkill" }],
       }}
       account={{
-        basePath: process.env.AUTHENTIK_SERVER + "/if/user/#/",
+        basePath: process.env.NEXT_PUBLIC_AUTHENTIK_SERVER + "/if/user/#/",
       }}
     >
       {children}
