@@ -10,7 +10,7 @@ export default async function SignOut() {
   });
 
   redirect(
-    process.env.AUTHENTIK_SERVER + "/if/flow/default-invalidation-flow/",
+    process.env.AUTHENTIK_SERVER + "/if/flow/notoverkill-com-invalidation/",
     RedirectType.replace,
   );
 }
