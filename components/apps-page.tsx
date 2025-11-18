@@ -1,6 +1,5 @@
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-import { redirect, RedirectType } from "next/navigation";
 import { Configuration, CoreApi } from "@goauthentik/api";
 import Image from "next/image";
 import Link from "next/link";
