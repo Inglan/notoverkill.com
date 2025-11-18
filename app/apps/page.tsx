@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 import { Configuration, CoreApi } from "@goauthentik/api";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function AppsPage() {
   const headersList = await headers();
@@ -26,11 +27,15 @@ export default async function AppsPage() {
   });
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-2 gap-2">
-      <h1>Apps</h1>
-      <div className="w-full grid grid-cols-4">
+    <div className="w-full max-w-4xl mx-auto p-2 flex flex-col gap-2">
+      <h1 className="text-4xl">Apps</h1>
+      <div className="w-full grid grid-cols-3 gap-2">
         {applications.results.map((app) => (
-          <div key={app.pk}>
+          <Link
+            className="flex flex-col items-center justify-center p-4 bg-card rounded border text-center gap-2"
+            key={app.pk}
+            href={app.launchUrl || ""}
+          >
             {app.metaIcon && (
               <Image
                 alt={app.name}
@@ -40,8 +45,8 @@ export default async function AppsPage() {
                 src={process.env.AUTHENTIK_SERVER! + app.metaIcon}
               />
             )}
-            {app.name}
-          </div>
+            <span className="line-clamp-1">{app.name}</span>
+          </Link>
         ))}
       </div>
     </div>
