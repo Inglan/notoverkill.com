@@ -13,14 +13,14 @@ interface AppCardProps {
 function AppCard({ app, authentikServer }: AppCardProps) {
   return (
     <Link
-      className="flex flex-col items-center justify-center p-4 bg-card rounded-lg border text-center gap-2 h-36"
+      className="flex flex-col items-center justify-center p-4 bg-card rounded-lg border text-center gap-2 h-36 hover:bg-muted duration-200"
       key={app.pk}
       href={app.launchUrl || ""}
     >
       {app.metaIcon && (
         <Image
           alt={app.name}
-          className="size-14"
+          className="size-14 rounded-md"
           width={56}
           height={56}
           src={authentikServer + app.metaIcon}
