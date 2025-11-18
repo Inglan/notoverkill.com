@@ -13,7 +13,7 @@ interface AppCardProps {
 function AppCard({ app, authentikServer }: AppCardProps) {
   return (
     <Link
-      className="flex flex-col items-center justify-center p-4 bg-card rounded-lg border text-center gap-2 h-36 hover:bg-muted duration-200"
+      className="flex flex-col items-center justify-center p-4 bg-card rounded-lg border text-center gap-2 h-36 hover:bg-muted duration-100 active:brightness-50 active:scale-[97%] ease-out"
       key={app.pk}
       href={app.launchUrl || ""}
     >
