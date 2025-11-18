@@ -24,6 +24,9 @@ export function Providers({ children }: { children: ReactNode }) {
       genericOAuth={{
         providers: [{ name: "notoverkill", provider: "notoverkill" }],
       }}
+      account={{
+        basePath: process.env.AUTHENTIK_SERVER + "/if/user/#/",
+      }}
     >
       {children}
     </AuthUIProvider>
