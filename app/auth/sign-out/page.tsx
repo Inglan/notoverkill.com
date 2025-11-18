@@ -5,9 +5,11 @@ import { redirect, RedirectType } from "next/navigation";
 export default async function SignOut() {
   const headersList = await headers();
 
-  await auth.api.signOut({
-    headers: headersList,
-  });
+  try {
+    await auth.api.signOut({
+      headers: headersList,
+    });
+  } catch {}
 
   redirect(
     process.env.AUTHENTIK_SERVER + "/if/flow/notoverkill-com-invalidation/",
