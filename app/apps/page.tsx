@@ -2,6 +2,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 import { Configuration, CoreApi } from "@goauthentik/api";
+import Image from "next/image";
 
 export default async function AppsPage() {
   const headersList = await headers();
@@ -25,11 +26,24 @@ export default async function AppsPage() {
   });
 
   return (
-    <div>
+    <div className="w-full max-w-4xl mx-auto p-2 gap-2">
       <h1>Apps</h1>
-      {applications.results.map((app) => (
-        <div key={app.pk}>{app.name}</div>
-      ))}
+      <div className="w-full grid grid-cols-4">
+        {applications.results.map((app) => (
+          <div key={app.pk}>
+            {app.metaIcon && (
+              <Image
+                alt={app.name}
+                className="w-10 h-10"
+                width={32}
+                height={32}
+                src={process.env.AUTHENTIK_SERVER! + app.metaIcon}
+              />
+            )}
+            {app.name}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
