@@ -1,4 +1,5 @@
 import { betterAuth } from "better-auth";
+import { magicLink } from "better-auth/plugins";
 import { Pool } from "pg";
 
 export const auth = betterAuth({
@@ -8,4 +9,11 @@ export const auth = betterAuth({
       rejectUnauthorized: false,
     },
   }),
+  plugins: [
+    magicLink({
+      sendMagicLink: async ({ email, token, url }, ctx) => {
+        console.log(`Magic link sent to ${email}: ${url}`);
+      },
+    }),
+  ],
 });
