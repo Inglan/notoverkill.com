@@ -1,5 +1,6 @@
 import { betterAuth } from "better-auth";
 import { magicLink } from "better-auth/plugins";
+import { passkey } from "@better-auth/passkey";
 import { Pool } from "pg";
 
 export const auth = betterAuth({
@@ -15,5 +16,6 @@ export const auth = betterAuth({
         console.log(`Magic link sent to ${email}: ${url}`);
       },
     }),
+    passkey(),
   ],
 });
