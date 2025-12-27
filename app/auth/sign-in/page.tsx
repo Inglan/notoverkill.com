@@ -31,9 +31,11 @@ export default function SignInPage() {
           </Button>
           <div className="grid grid-cols-2 gap-2">
             <Button className="w-full" variant="outline">
+              <ArrowRight />
               GitHub
             </Button>
             <Button className="w-full" variant="outline">
+              <ArrowRight />
               Google
             </Button>
           </div>
