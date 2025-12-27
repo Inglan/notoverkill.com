@@ -1,6 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Fingerprint } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, Fingerprint } from "lucide-react";
+import {
+  InputGroup,
+  InputGroupButton,
+  InputGroupInput,
+} from "@/components/ui/input-group";
 
 export default function SignInPage() {
   return (
@@ -21,6 +25,13 @@ export default function SignInPage() {
               Google
             </Button>
           </div>
+          or sign in with a link
+          <InputGroup>
+            <InputGroupInput placeholder="Email" required type="email" />
+            <InputGroupButton size="icon-sm">
+              <ArrowRight />
+            </InputGroupButton>
+          </InputGroup>
         </div>
       </div>
     </div>
