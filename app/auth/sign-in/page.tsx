@@ -7,13 +7,17 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 
 export default function SignInPage() {
   useEffect(() => {
     authClient.signIn.passkey();
   }, []);
+
+  const [passkeyLoading, setPasskeyLoading] = useState(false);
+  const [githubLoading, setGithubLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
