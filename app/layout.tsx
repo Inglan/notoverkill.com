@@ -19,10 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistMono.className} antialiased`}>
-        <Header />
-        {children}
-      </body>
+      <body className={`${geistMono.className} antialiased`}>{children}</body>
     </html>
   );
 }
