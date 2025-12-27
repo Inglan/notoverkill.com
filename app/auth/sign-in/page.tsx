@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Fingerprint } from "lucide-react";
+import { ArrowRight, Check, Fingerprint, Mail } from "lucide-react";
 import {
   InputGroup,
   InputGroupButton,
@@ -22,7 +22,16 @@ export default function SignInPage() {
   );
 }
 
-export function Form() {
+function EmailSent() {
+  return (
+    <div className="flex flex-row items-center justify-center gap-2 p-4">
+      <Check />
+      <div className="text-lg">Sign in link sent</div>
+    </div>
+  );
+}
+
+function Form() {
   const [inputtedEmail, setInputtedEmail] = useState("");
 
   const [emailLoading, setEmailLoading] = useState(false);
