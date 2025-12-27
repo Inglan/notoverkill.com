@@ -12,13 +12,17 @@ import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@/components/ui/spinner";
 
 export default function SignInPage() {
-  useEffect(() => {
-    // authClient.signIn.passkey();
-  }, []);
-
-  const [passkeyLoading, setPasskeyLoading] = useState(false);
+  const [passkeyLoading, setPasskeyLoading] = useState(true);
   const [githubLoading, setGithubLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
+
+  useEffect(() => {
+    async function attemptPasskey() {
+      await authClient.signIn.passkey();
+      setPasskeyLoading(false);
+    }
+    attemptPasskey();
+  }, []);
 
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
