@@ -1,7 +1,28 @@
+import { Button } from "@/components/ui/button";
+import { Fingerprint } from "lucide-react";
+import Image from "next/image";
+
 export default function SignInPage() {
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm bg-card border rounded-lg">e</div>
+      <div className="w-full max-w-sm bg-card border rounded-lg flex flex-col p-4 gap-4">
+        <h1 className="text-2xl font-bold">
+          Log in to <span className="text-primary">notoverkill</span>
+        </h1>
+        <div className="flex flex-col gap-2 w-full">
+          <Button className="w-full">
+            <Fingerprint /> Passkey
+          </Button>
+          <div className="grid grid-cols-2 gap-2">
+            <Button className="w-full" variant="outline">
+              GitHub
+            </Button>
+            <Button className="w-full" variant="outline">
+              Google
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
