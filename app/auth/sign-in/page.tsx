@@ -100,7 +100,7 @@ export default function SignInPage() {
               value={inputtedEmail}
               onChange={(e) => setInputtedEmail(e.target.value)}
               onKeyDown={(e) => {
-                if (e.key === "enter") {
+                if (e.key === "Enter") {
                   handleEmailSignIn();
                 }
               }}
