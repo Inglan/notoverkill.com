@@ -13,10 +13,6 @@ import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
 
 export default function SignInPage() {
-  const [passkeyLoading, setPasskeyLoading] = useState(false);
-  const [githubLoading, setGithubLoading] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false);
-
   const [inputtedEmail, setInputtedEmail] = useState("");
 
   async function betterAuthFunctionWrapper(
@@ -56,48 +52,42 @@ export default function SignInPage() {
           Log in to <span className="text-primary">notoverkill</span>
         </h1>
         <div className="flex flex-col gap-2 w-full">
-          <Button
+          <ButtonWithSpinner
             className="w-full"
             onClick={async () => {
-              setPasskeyLoading(true);
               await betterAuthFunctionWrapper(() =>
                 authClient.signIn.passkey(),
               );
-              setPasskeyLoading(false);
             }}
+            icon={<Fingerprint />}
           >
-            {passkeyLoading ? <Spinner /> : <Fingerprint />}
             Passkey
-          </Button>
+          </ButtonWithSpinner>
           <div className="grid grid-cols-2 gap-2">
-            <Button
+            <ButtonWithSpinner
               className="w-full"
               variant="outline"
               onClick={async () => {
-                setGithubLoading(true);
                 await betterAuthFunctionWrapper(() =>
                   authClient.signIn.social({ provider: "github" }),
                 );
-                setGithubLoading(false);
               }}
+              icon={<ArrowRight />}
             >
-              {githubLoading ? <Spinner /> : <ArrowRight />}
               GitHub
-            </Button>
-            <Button
+            </ButtonWithSpinner>
+            <ButtonWithSpinner
               className="w-full"
               variant="outline"
               onClick={async () => {
-                setGoogleLoading(true);
                 await betterAuthFunctionWrapper(() =>
                   authClient.signIn.social({ provider: "google" }),
                 );
-                setGoogleLoading(false);
               }}
+              icon={<ArrowRight />}
             >
-              {googleLoading ? <Spinner /> : <ArrowRight />}
               Google
-            </Button>
+            </ButtonWithSpinner>
           </div>
           <p className="text-sm text-muted-foreground">
             or sign in with a link
