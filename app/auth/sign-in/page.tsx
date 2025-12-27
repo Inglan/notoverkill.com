@@ -26,7 +26,7 @@ function EmailSent() {
   return (
     <div className="flex flex-row items-center justify-center gap-2 p-4">
       <Check />
-      <div className="text-lg">Log in link sent</div>
+      <div className="text-lg">Sign in link sent</div>
     </div>
   );
 }
@@ -77,7 +77,7 @@ function Form() {
   return (
     <>
       <h1 className="text-2xl font-bold">
-        Log in to <span className="text-primary">notoverkill</span>
+        Sign in to <span className="text-primary">notoverkill</span>
       </h1>
       <div className="flex flex-col gap-2 w-full">
         <ButtonWithSpinner
