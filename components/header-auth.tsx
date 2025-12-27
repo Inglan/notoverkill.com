@@ -3,6 +3,7 @@
 import { Button } from "./ui/button";
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "./ui/spinner";
+import Link from "next/link";
 
 export default function HeaderAuth() {
   const session = authClient.useSession();
@@ -18,7 +19,9 @@ export default function HeaderAuth() {
           Sign Out
         </Button>
       ) : (
-        <Button>Sign In</Button>
+        <Button asChild>
+          <Link href="/auth/sign-in">Sign In</Link>
+        </Button>
       )}
     </div>
   );
