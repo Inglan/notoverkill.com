@@ -13,17 +13,17 @@ import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
 
 export default function SignInPage() {
-  const [passkeyLoading, setPasskeyLoading] = useState(true);
+  const [passkeyLoading, setPasskeyLoading] = useState(false);
   const [githubLoading, setGithubLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
 
-  useEffect(() => {
-    async function attemptPasskey() {
-      await authClient.signIn.passkey();
-      setPasskeyLoading(false);
-    }
-    attemptPasskey();
-  }, []);
+  // useEffect(() => {
+  //   async function attemptPasskey() {
+  //     await authClient.signIn.passkey();
+  //     setPasskeyLoading(false);
+  //   }
+  //   attemptPasskey();
+  // }, []);
 
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
