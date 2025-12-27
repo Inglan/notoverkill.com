@@ -31,7 +31,14 @@ export default function SignInPage() {
           Log in to <span className="text-primary">notoverkill</span>
         </h1>
         <div className="flex flex-col gap-2 w-full">
-          <Button className="w-full">
+          <Button
+            className="w-full"
+            onClick={async () => {
+              setPasskeyLoading(true);
+              await authClient.signIn.passkey();
+              setPasskeyLoading(false);
+            }}
+          >
             {passkeyLoading ? <Spinner /> : <Fingerprint />}
             Passkey
           </Button>
