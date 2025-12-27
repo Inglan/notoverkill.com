@@ -3,6 +3,7 @@ import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import { Toaster } from "@/components/ui/sonner";
+import { MotionConfig } from "motion/react";
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
@@ -21,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistMono.className} antialiased`}>
-        {children}
-        <Toaster />
+        <MotionConfig transition={{ ease: [0.165, 0.84, 0.44, 1.0] }}>
+          {children}
+          <Toaster />
+        </MotionConfig>
       </body>
     </html>
   );
