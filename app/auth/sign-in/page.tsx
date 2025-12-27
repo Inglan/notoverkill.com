@@ -17,6 +17,8 @@ export default function SignInPage() {
   const [githubLoading, setGithubLoading] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
 
+  const [inputtedEmail, setInputtedEmail] = useState("");
+
   async function betterAuthFunctionWrapper(
     fn: () => Promise<{
       data: unknown;
@@ -31,6 +33,12 @@ export default function SignInPage() {
       toast.error(error.message);
     }
     return { data, error };
+  }
+
+  async function handleEmailSignIn() {
+    await betterAuthFunctionWrapper(() =>
+      authClient.signIn.magicLink({ email: inputtedEmail }),
+    );
   }
 
   // useEffect(() => {
@@ -95,8 +103,24 @@ export default function SignInPage() {
             or sign in with a link
           </p>
           <InputGroup>
-            <InputGroupInput placeholder="Email" required type="email" />
-            <InputGroupButton size="icon-sm">
+            <InputGroupInput
+              placeholder="Email"
+              required
+              type="email"
+              value={inputtedEmail}
+              onChange={(e) => setInputtedEmail(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "enter") {
+                  handleEmailSignIn();
+                }
+              }}
+            />
+            <InputGroupButton
+              size="icon-sm"
+              onClick={() => {
+                handleEmailSignIn();
+              }}
+            >
               <ArrowRight />
             </InputGroupButton>
           </InputGroup>
