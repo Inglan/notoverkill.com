@@ -25,7 +25,9 @@ export default function SignInPage() {
               Google
             </Button>
           </div>
-          or sign in with a link
+          <p className="text-sm text-muted-foreground">
+            or sign in with a link
+          </p>
           <InputGroup>
             <InputGroupInput placeholder="Email" required type="email" />
             <InputGroupButton size="icon-sm">
