@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeaderAuth from "./header-auth";
 
 export default function Header() {
   return (
@@ -13,6 +14,8 @@ export default function Header() {
             height={76 / 2}
           />
         </Link>
+        <div className="grow"></div>
+        <HeaderAuth />
       </nav>
     </div>
   );
