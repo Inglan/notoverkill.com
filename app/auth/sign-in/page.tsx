@@ -7,8 +7,14 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import { useEffect } from "react";
+import { authClient } from "@/lib/auth-client";
 
 export default function SignInPage() {
+  useEffect(() => {
+    authClient.signIn.passkey();
+  }, []);
+
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <div className="w-full max-w-sm bg-card border rounded-lg flex flex-col p-4 gap-4">
