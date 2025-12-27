@@ -7,12 +7,7 @@ export default function Header() {
     <div className="w-full border-b bg-background/50 sticky top-0 backdrop-blur-xl z-50">
       <nav className="max-w-4xl mx-auto h-15 flex flex-row items-center p-4">
         <Link href="/">
-          <Image
-            src="/notoverkill.svg"
-            alt="Logo"
-            width={275 / 2}
-            height={76 / 2}
-          />
+          <div className="text-2xl text-primary">notoverkill</div>
         </Link>
         <div className="grow"></div>
         <HeaderAuth />
