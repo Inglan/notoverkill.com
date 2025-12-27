@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@/components/ui/spinner";
+import { toast } from "sonner";
 
 export default function SignInPage() {
   const [passkeyLoading, setPasskeyLoading] = useState(true);
@@ -35,7 +36,10 @@ export default function SignInPage() {
             className="w-full"
             onClick={async () => {
               setPasskeyLoading(true);
-              await authClient.signIn.passkey();
+              const { error } = await authClient.signIn.passkey();
+              if (error) {
+                toast.error(error.message);
+              }
               setPasskeyLoading(false);
             }}
           >
