@@ -15,6 +15,8 @@ import { toast } from "sonner";
 export default function SignInPage() {
   const [inputtedEmail, setInputtedEmail] = useState("");
 
+  const [emailLoading, setEmailLoading] = useState(false);
+
   async function betterAuthFunctionWrapper(
     fn: () => Promise<{
       data: unknown;
@@ -32,9 +34,11 @@ export default function SignInPage() {
   }
 
   async function handleEmailSignIn() {
+    setEmailLoading(true);
     await betterAuthFunctionWrapper(() =>
       authClient.signIn.magicLink({ email: inputtedEmail }),
     );
+    setEmailLoading(false);
   }
 
   // useEffect(() => {
@@ -104,12 +108,14 @@ export default function SignInPage() {
                   handleEmailSignIn();
                 }
               }}
+              disabled={emailLoading}
             />
             <InputGroupButton
               size="icon-sm"
               onClick={() => {
                 handleEmailSignIn();
               }}
+              disabled={emailLoading}
             >
               <ArrowRight />
             </InputGroupButton>
