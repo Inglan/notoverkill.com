@@ -26,7 +26,7 @@ function EmailSent() {
   return (
     <div className="flex flex-row items-center justify-center gap-2 p-4">
       <Check />
-      <div className="text-lg">Sign in link sent</div>
+      <div className="text-lg">Log in link sent</div>
     </div>
   );
 }
@@ -35,6 +35,7 @@ function Form() {
   const [inputtedEmail, setInputtedEmail] = useState("");
 
   const [emailLoading, setEmailLoading] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
 
   async function betterAuthFunctionWrapper(
     fn: () => Promise<{
@@ -54,10 +55,13 @@ function Form() {
 
   async function handleEmailSignIn() {
     setEmailLoading(true);
-    await betterAuthFunctionWrapper(() =>
+    const { data, error } = await betterAuthFunctionWrapper(() =>
       authClient.signIn.magicLink({ email: inputtedEmail }),
     );
     setEmailLoading(false);
+    if (!error) {
+      setEmailSent(true);
+    }
   }
 
   // useEffect(() => {
@@ -67,6 +71,8 @@ function Form() {
   //   }
   //   attemptPasskey();
   // }, []);
+
+  if (emailSent) return <EmailSent />;
 
   return (
     <>
