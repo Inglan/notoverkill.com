@@ -129,3 +129,29 @@ export default function SignInPage() {
     </div>
   );
 }
+
+function ButtonWithSpinner({
+  icon,
+  onClick,
+  ...props
+}: Omit<React.ComponentProps<typeof Button>, "onClick"> & {
+  icon: React.ReactNode;
+  onClick: () => Promise<void>;
+}) {
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <Button
+      {...props}
+      onClick={async () => {
+        setLoading(true);
+        await onClick();
+        setLoading(false);
+      }}
+      disabled={loading}
+    >
+      {loading ? <Spinner /> : icon}
+      {props.children}
+    </Button>
+  );
+}
