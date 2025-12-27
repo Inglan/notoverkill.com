@@ -14,6 +14,8 @@ import { toast } from "sonner";
 
 export default function SignInPage() {
   const [passkeyLoading, setPasskeyLoading] = useState(false);
+  const [githubLoading, setGithubLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   async function betterAuthFunctionWrapper(
     fn: () => Promise<{
@@ -60,12 +62,32 @@ export default function SignInPage() {
             Passkey
           </Button>
           <div className="grid grid-cols-2 gap-2">
-            <Button className="w-full" variant="outline">
-              <ArrowRight />
+            <Button
+              className="w-full"
+              variant="outline"
+              onClick={async () => {
+                setGithubLoading(true);
+                await betterAuthFunctionWrapper(() =>
+                  authClient.signIn.social({ provider: "github" }),
+                );
+                setGithubLoading(false);
+              }}
+            >
+              {githubLoading ? <Spinner /> : <ArrowRight />}
               GitHub
             </Button>
-            <Button className="w-full" variant="outline">
-              <ArrowRight />
+            <Button
+              className="w-full"
+              variant="outline"
+              onClick={async () => {
+                setGoogleLoading(true);
+                await betterAuthFunctionWrapper(() =>
+                  authClient.signIn.social({ provider: "google" }),
+                );
+                setGoogleLoading(false);
+              }}
+            >
+              {googleLoading ? <Spinner /> : <ArrowRight />}
               Google
             </Button>
           </div>
