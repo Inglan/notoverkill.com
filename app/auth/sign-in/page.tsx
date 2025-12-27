@@ -14,8 +14,22 @@ import { toast } from "sonner";
 
 export default function SignInPage() {
   const [passkeyLoading, setPasskeyLoading] = useState(false);
-  const [githubLoading, setGithubLoading] = useState(false);
-  const [googleLoading, setGoogleLoading] = useState(false);
+
+  async function betterAuthFunctionWrapper(
+    fn: () => Promise<{
+      data: unknown;
+      error: {
+        message?: string;
+        [key: string]: unknown;
+      } | null;
+    }>,
+  ) {
+    const { data, error } = await fn();
+    if (error?.message) {
+      toast.error(error.message);
+    }
+    return { data, error };
+  }
 
   // useEffect(() => {
   //   async function attemptPasskey() {
@@ -36,10 +50,9 @@ export default function SignInPage() {
             className="w-full"
             onClick={async () => {
               setPasskeyLoading(true);
-              const { error } = await authClient.signIn.passkey();
-              if (error) {
-                toast.error(error.message);
-              }
+              await betterAuthFunctionWrapper(() =>
+                authClient.signIn.passkey(),
+              );
               setPasskeyLoading(false);
             }}
           >
@@ -48,11 +61,11 @@ export default function SignInPage() {
           </Button>
           <div className="grid grid-cols-2 gap-2">
             <Button className="w-full" variant="outline">
-              {githubLoading ? <Spinner /> : <ArrowRight />}
+              <ArrowRight />
               GitHub
             </Button>
             <Button className="w-full" variant="outline">
-              {googleLoading ? <Spinner /> : <ArrowRight />}
+              <ArrowRight />
               Google
             </Button>
           </div>
