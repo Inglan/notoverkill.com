@@ -13,6 +13,16 @@ import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
 
 export default function SignInPage() {
+  return (
+    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
+      <div className="w-full max-w-sm bg-card border rounded-lg flex flex-col p-4 gap-4">
+        <Form />
+      </div>
+    </div>
+  );
+}
+
+export function Form() {
   const [inputtedEmail, setInputtedEmail] = useState("");
 
   const [emailLoading, setEmailLoading] = useState(false);
@@ -50,79 +60,73 @@ export default function SignInPage() {
   // }, []);
 
   return (
-    <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <div className="w-full max-w-sm bg-card border rounded-lg flex flex-col p-4 gap-4">
-        <h1 className="text-2xl font-bold">
-          Log in to <span className="text-primary">notoverkill</span>
-        </h1>
-        <div className="flex flex-col gap-2 w-full">
+    <>
+      <h1 className="text-2xl font-bold">
+        Log in to <span className="text-primary">notoverkill</span>
+      </h1>
+      <div className="flex flex-col gap-2 w-full">
+        <ButtonWithSpinner
+          className="w-full"
+          onClick={async () => {
+            await betterAuthFunctionWrapper(() => authClient.signIn.passkey());
+          }}
+          icon={<Fingerprint />}
+        >
+          Passkey
+        </ButtonWithSpinner>
+        <div className="grid grid-cols-2 gap-2">
           <ButtonWithSpinner
             className="w-full"
+            variant="outline"
             onClick={async () => {
               await betterAuthFunctionWrapper(() =>
-                authClient.signIn.passkey(),
+                authClient.signIn.social({ provider: "github" }),
               );
             }}
-            icon={<Fingerprint />}
+            icon={<ArrowRight />}
           >
-            Passkey
+            GitHub
           </ButtonWithSpinner>
-          <div className="grid grid-cols-2 gap-2">
-            <ButtonWithSpinner
-              className="w-full"
-              variant="outline"
-              onClick={async () => {
-                await betterAuthFunctionWrapper(() =>
-                  authClient.signIn.social({ provider: "github" }),
-                );
-              }}
-              icon={<ArrowRight />}
-            >
-              GitHub
-            </ButtonWithSpinner>
-            <ButtonWithSpinner
-              className="w-full"
-              variant="outline"
-              onClick={async () => {
-                await betterAuthFunctionWrapper(() =>
-                  authClient.signIn.social({ provider: "google" }),
-                );
-              }}
-              icon={<ArrowRight />}
-            >
-              Google
-            </ButtonWithSpinner>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            or sign in with a link
-          </p>
-          <InputGroup>
-            <InputGroupInput
-              placeholder="Email"
-              required
-              type="email"
-              value={inputtedEmail}
-              onChange={(e) => setInputtedEmail(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleEmailSignIn();
-                }
-              }}
-              disabled={emailLoading}
-            />
-            <InputGroupButton
-              size="icon-sm"
-              onClick={() => {
-                handleEmailSignIn();
-              }}
-              disabled={emailLoading}
-            >
-              <ArrowRight />
-            </InputGroupButton>
-          </InputGroup>
+          <ButtonWithSpinner
+            className="w-full"
+            variant="outline"
+            onClick={async () => {
+              await betterAuthFunctionWrapper(() =>
+                authClient.signIn.social({ provider: "google" }),
+              );
+            }}
+            icon={<ArrowRight />}
+          >
+            Google
+          </ButtonWithSpinner>
         </div>
+        <p className="text-sm text-muted-foreground">or sign in with a link</p>
+        <InputGroup>
+          <InputGroupInput
+            placeholder="Email"
+            required
+            type="email"
+            value={inputtedEmail}
+            onChange={(e) => setInputtedEmail(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleEmailSignIn();
+              }
+            }}
+            disabled={emailLoading}
+          />
+          <InputGroupButton
+            size="icon-sm"
+            onClick={() => {
+              handleEmailSignIn();
+            }}
+            disabled={emailLoading}
+          >
+            <ArrowRight />
+          </InputGroupButton>
+        </InputGroup>
       </div>
-    </div>
+    </>
   );
 }
 
