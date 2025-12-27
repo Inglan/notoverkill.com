@@ -9,10 +9,11 @@ import {
 } from "@/components/ui/input-group";
 import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { Spinner } from "@/components/ui/spinner";
 
 export default function SignInPage() {
   useEffect(() => {
-    authClient.signIn.passkey();
+    // authClient.signIn.passkey();
   }, []);
 
   const [passkeyLoading, setPasskeyLoading] = useState(false);
@@ -27,15 +28,16 @@ export default function SignInPage() {
         </h1>
         <div className="flex flex-col gap-2 w-full">
           <Button className="w-full">
-            <Fingerprint /> Passkey
+            {passkeyLoading ? <Spinner /> : <Fingerprint />}
+            Passkey
           </Button>
           <div className="grid grid-cols-2 gap-2">
             <Button className="w-full" variant="outline">
-              <ArrowRight />
+              {githubLoading ? <Spinner /> : <ArrowRight />}
               GitHub
             </Button>
             <Button className="w-full" variant="outline">
-              <ArrowRight />
+              {googleLoading ? <Spinner /> : <ArrowRight />}
               Google
             </Button>
           </div>
