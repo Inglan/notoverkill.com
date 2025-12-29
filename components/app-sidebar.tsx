@@ -7,7 +7,16 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Check, Home, KeyRound, Laptop, User } from "lucide-react";
+import {
+  Check,
+  CircleCheck,
+  HelpCircle,
+  Home,
+  KeyRound,
+  Laptop,
+  Logs,
+  User,
+} from "lucide-react";
 import Link from "next/link";
 
 const items: {
@@ -39,6 +48,21 @@ const items: {
     name: "Account",
     href: "/account/details",
     icon: User,
+  },
+  {
+    name: "Audit Log",
+    href: "/account/log",
+    icon: Logs,
+  },
+  {
+    name: "Support",
+    href: "/account/support",
+    icon: HelpCircle,
+  },
+  {
+    name: "Status",
+    href: "/account/status",
+    icon: CircleCheck,
   },
 ];
 
