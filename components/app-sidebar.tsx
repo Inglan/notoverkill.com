@@ -45,7 +45,15 @@ const items: {
 export function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader />
+      <SidebarHeader>
+        <SidebarMenuItem>
+          <SidebarMenuButton size="lg">
+            <Link href="/">
+              <div className="text-2xl text-primary">notoverkill</div>
+            </Link>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           {items.map((item) => (
