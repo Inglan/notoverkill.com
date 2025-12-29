@@ -47,7 +47,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader>
         <SidebarMenuItem>
-          <SidebarMenuButton size="lg">
+          <SidebarMenuButton size="lg" asChild>
             <Link href="/">
               <div className="text-2xl text-primary">notoverkill</div>
             </Link>
