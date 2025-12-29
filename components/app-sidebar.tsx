@@ -45,14 +45,14 @@ const items: {
     icon: Check,
   },
   {
-    name: "Account",
-    href: "/account/details",
-    icon: User,
-  },
-  {
     name: "Audit Log",
     href: "/account/log",
     icon: Logs,
+  },
+  {
+    name: "Account",
+    href: "/account/details",
+    icon: User,
   },
   {
     name: "Support",
