@@ -7,7 +7,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { Home } from "lucide-react";
+import { Check, Home, KeyRound, Laptop, User } from "lucide-react";
 import Link from "next/link";
 
 const items: {
@@ -17,8 +17,28 @@ const items: {
 }[] = [
   {
     name: "Home",
-    href: "/",
+    href: "/account",
     icon: Home,
+  },
+  {
+    name: "Sessions",
+    href: "/account/sessions",
+    icon: Laptop,
+  },
+  {
+    name: "Authentication",
+    href: "/account/auth",
+    icon: KeyRound,
+  },
+  {
+    name: "Consent",
+    href: "/account/consent",
+    icon: Check,
+  },
+  {
+    name: "Account",
+    href: "/account/details",
+    icon: User,
   },
 ];
 
