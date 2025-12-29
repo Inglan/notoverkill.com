@@ -97,7 +97,7 @@ export default async function Home() {
   return (
     <>
       <main className="w-full max-w-4xl mx-auto">
-        <div className="border my-4 p-4 rounded-lg flex flex-row">
+        <div className="border my-4 p-4 rounded-lg flex flex-row items-center">
           <div className="text-xl">You are already signed in</div>
           <Button className="ml-auto" asChild>
             <Link href="/apps">Apps</Link>
