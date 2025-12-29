@@ -1,6 +1,8 @@
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 export default async function SSOLayout({
   children,
@@ -15,5 +17,13 @@ export default async function SSOLayout({
 
   if (!session) redirect("/auth/sign-in");
 
-  return <>{children}</>;
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
+  );
 }
