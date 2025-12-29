@@ -11,6 +11,7 @@ import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
+import { motion } from "motion/react";
 
 export default function Form() {
   const [inputtedEmail, setInputtedEmail] = useState("");
@@ -56,7 +57,11 @@ export default function Form() {
   if (emailSent) return <EmailSent />;
 
   return (
-    <>
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0, y: 20 }}
+      animate={{ scale: 1, opacity: 1, y: 0 }}
+      className="w-full max-w-sm bg-card border rounded-lg flex flex-col p-4 gap-4"
+    >
       <h1 className="text-2xl font-bold">
         Sign in to <span className="text-primary">notoverkill</span>
       </h1>
@@ -122,7 +127,7 @@ export default function Form() {
           </InputGroupButton>
         </InputGroup>
       </div>
-    </>
+    </motion.div>
   );
 }
 
