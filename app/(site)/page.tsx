@@ -1,5 +1,7 @@
 import HomelabScroller from "@/components/homelabscroller";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { auth } from "@/lib/auth";
 import {
   EthernetPort,
   HardDrive,
@@ -9,6 +11,7 @@ import {
   Container,
   Gauge,
 } from "lucide-react";
+import { headers } from "next/headers";
 import Link from "next/link";
 
 const mySetup = [
@@ -84,10 +87,22 @@ const averageSetup = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const headersList = await headers();
+
+  const session = await auth.api.getSession({
+    headers: headersList,
+  });
+
   return (
     <>
       <main className="w-full max-w-4xl mx-auto">
+        <div className="border my-4 p-4 rounded-lg flex flex-row">
+          <div className="text-xl">You are already signed in</div>
+          <Button className="ml-auto" asChild>
+            <Link href="/apps">Apps</Link>
+          </Button>
+        </div>
         <div className="h-96 flex justify-center flex-col gap-4 p-4 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl">
             My homelab
@@ -156,7 +171,6 @@ export default function Home() {
             doesn&apos;t mean my setup is overkill.
           </h2>
         </div>
-
         <footer className="text-sm p-4 py-15 max-w-4xl mx-auto items-center justify-center flex">
           <div className="border border-dashed p-4 rounded-lg">
             This website is built in Next.js and is{" "}
