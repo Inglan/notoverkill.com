@@ -1,17 +1,16 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Fingerprint, Mail } from "lucide-react";
+import { ArrowRight, Check, Fingerprint } from "lucide-react";
 import {
   InputGroup,
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
-import { motion } from "motion/react";
 
 export default function Form() {
   const [inputtedEmail, setInputtedEmail] = useState("");
