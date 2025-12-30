@@ -38,7 +38,10 @@ export default function Form() {
   async function handleEmailSignIn() {
     setEmailLoading(true);
     const { data, error } = await betterAuthFunctionWrapper(() =>
-      authClient.signIn.magicLink({ email: inputtedEmail }),
+      authClient.signIn.magicLink({
+        email: inputtedEmail,
+        callbackURL: "/account",
+      }),
     );
     setEmailLoading(false);
     if (!error) {
@@ -81,7 +84,10 @@ export default function Form() {
             variant="outline"
             onClick={async () => {
               await betterAuthFunctionWrapper(() =>
-                authClient.signIn.social({ provider: "github" }),
+                authClient.signIn.social({
+                  provider: "github",
+                  callbackURL: "/account",
+                }),
               );
             }}
             icon={<ArrowRight />}
@@ -93,7 +99,10 @@ export default function Form() {
             variant="outline"
             onClick={async () => {
               await betterAuthFunctionWrapper(() =>
-                authClient.signIn.social({ provider: "google" }),
+                authClient.signIn.social({
+                  provider: "google",
+                  callbackURL: "/account",
+                }),
               );
             }}
             icon={<ArrowRight />}
