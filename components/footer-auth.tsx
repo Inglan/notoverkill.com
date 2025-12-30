@@ -9,9 +9,11 @@ import {
 import { SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 import { ChevronUp } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 export default function FooterAuth() {
   const session = authClient.useSession();
+  const router = useRouter();
 
   return (
     <SidebarMenuItem>
@@ -23,7 +25,14 @@ export default function FooterAuth() {
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>Sign out</DropdownMenuItem>
+          <DropdownMenuItem
+            onClick={async () => {
+              await authClient.signOut();
+              router.push("/auth/sign-in");
+            }}
+          >
+            Sign out
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </SidebarMenuItem>
