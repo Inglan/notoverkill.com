@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sidebar,
   SidebarContent,
@@ -19,6 +21,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import FooterAuth from "./footer-auth";
+import { usePathname } from "next/navigation";
 
 const items: {
   name: string;
@@ -68,6 +71,8 @@ const items: {
 ];
 
 export function AppSidebar() {
+  const pathname = usePathname();
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -83,7 +88,7 @@ export function AppSidebar() {
         <SidebarGroup>
           {items.map((item) => (
             <SidebarMenuItem key={item.href}>
-              <SidebarMenuButton asChild>
+              <SidebarMenuButton isActive={pathname === item.href} asChild>
                 <Link href={item.href}>
                   <item.icon />
                   {item.name}
