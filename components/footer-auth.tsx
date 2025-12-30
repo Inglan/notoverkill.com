@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -5,23 +7,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
-import { headers } from "next/headers";
-import { auth } from "@/lib/auth";
 import { ChevronUp } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
 
-export default async function FooterAuth() {
-  const headersList = await headers();
-
-  const session = await auth.api.getSession({
-    headers: headersList,
-  });
+export default function FooterAuth() {
+  const session = authClient.useSession();
 
   return (
     <SidebarMenuItem>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <SidebarMenuButton>
-            {session?.user.name || session?.user.email}
+            {session.data?.user.name || session.data?.user.email}
             <ChevronUp className="ml-auto" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>
