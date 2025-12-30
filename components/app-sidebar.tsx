@@ -18,6 +18,7 @@ import {
   User,
 } from "lucide-react";
 import Link from "next/link";
+import FooterAuth from "./footer-auth";
 
 const items: {
   name: string;
@@ -92,7 +93,9 @@ export function AppSidebar() {
           ))}
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>
+        <FooterAuth />
+      </SidebarFooter>
     </Sidebar>
   );
 }
