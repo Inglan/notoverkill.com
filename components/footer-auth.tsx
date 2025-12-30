@@ -22,7 +22,7 @@ export default function FooterAuth() {
         <SidebarMenuButton>
           <Skeleton className="w-full h-full" />
         </SidebarMenuButton>
-      ) : (
+      ) : session.data ? (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton>
@@ -41,6 +41,8 @@ export default function FooterAuth() {
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+      ) : (
+        <>skill issue</>
       )}
     </SidebarMenuItem>
   );
