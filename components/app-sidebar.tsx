@@ -73,7 +73,7 @@ export function AppSidebar() {
       <SidebarHeader>
         <SidebarMenuItem>
           <SidebarMenuButton size="lg" asChild>
-            <Link href="/">
+            <Link href="/account">
               <div className="text-2xl text-primary">notoverkill</div>
             </Link>
           </SidebarMenuButton>
