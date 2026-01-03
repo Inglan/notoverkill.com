@@ -161,7 +161,7 @@ export default function Home() {
           <div className="border border-dashed p-4 rounded-lg">
             This website is built in Next.js and is{" "}
             <Link
-              href="https://github.com/Inglan/notoverkill.com"
+              href="https://github.com/ingoau/notoverkill.com"
               target="_blank"
               className="underline"
             >
