@@ -9,14 +9,6 @@ export default async function SSOLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-
-  const session = await auth.api.getSession({
-    headers: headersList,
-  });
-
-  if (!session) redirect("/auth/sign-in");
-
   return (
     <SidebarProvider>
       <AppSidebar />
