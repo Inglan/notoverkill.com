@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
 export default async function SessionsPage() {
   const headersList = await headers();
@@ -27,6 +29,8 @@ export default async function SessionsPage() {
                 body: { token: session.token },
                 headers: headersList,
               });
+              revalidatePath("/account/sessions");
+              redirect("/account/sessions");
             }}
           >
             <Button variant="destructive" size="sm" type="submit">
