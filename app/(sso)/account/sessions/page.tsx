@@ -12,7 +12,7 @@ export default async function SessionsPage() {
   const token = session?.session.token;
   const sessions = await auth.api.listSessions({ headers: headersList });
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 p-2 w-full max-w-4xl mx-auto">
       {sessions.map((session) => {
         const parsedUserAgent = new UAParser(
           session.userAgent || "",
@@ -20,8 +20,11 @@ export default async function SessionsPage() {
         const humanReadableUserAgent = `${parsedUserAgent.browser.name} ${parsedUserAgent.browser.version} on ${parsedUserAgent.os.name}`;
 
         return (
-          <div key={session.id} className="flex flex-row bg-card">
-            <div className="flex flex-col p-4">
+          <div
+            key={session.id}
+            className="flex flex-row bg-card p-4 rounded-lg"
+          >
+            <div className="flex flex-col grow">
               <div className="text-sm font-medium">
                 {session.token == token ? "Current session" : session.ipAddress}
               </div>
