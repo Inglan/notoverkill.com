@@ -23,7 +23,7 @@ export default async function SessionsPage() {
         return (
           <div
             key={session.id}
-            className="flex flex-row bg-card p-4 rounded-lg"
+            className="flex flex-row bg-card p-4 rounded-lg border"
           >
             <div className="flex flex-col grow">
               <div className="text-sm font-medium">
