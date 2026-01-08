@@ -8,7 +8,11 @@ export const metadata: Metadata = {
   title: "Sign In",
 };
 
-export default async function SignInPage() {
+export default async function SignInPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
   const headersList = await headers();
 
   const session = await auth.api.getSession({
@@ -17,9 +21,13 @@ export default async function SignInPage() {
 
   if (session) redirect("/");
 
+  const redirectUrl = (await searchParams).redirect;
+
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
-      <Form />
+      <Form
+        redirectUrl={typeof redirectUrl === "string" ? redirectUrl : "/account"}
+      />
     </div>
   );
 }

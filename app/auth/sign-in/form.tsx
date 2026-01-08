@@ -13,7 +13,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { toast } from "sonner";
 import { motion } from "motion/react";
 
-export default function Form() {
+export default function Form({ redirectUrl }: { redirectUrl: string }) {
   const [inputtedEmail, setInputtedEmail] = useState("");
 
   const [emailLoading, setEmailLoading] = useState(false);
@@ -40,7 +40,7 @@ export default function Form() {
     const { data, error } = await betterAuthFunctionWrapper(() =>
       authClient.signIn.magicLink({
         email: inputtedEmail,
-        callbackURL: "/account",
+        callbackURL: redirectUrl,
       }),
     );
     setEmailLoading(false);
@@ -86,7 +86,7 @@ export default function Form() {
               await betterAuthFunctionWrapper(() =>
                 authClient.signIn.social({
                   provider: "github",
-                  callbackURL: "/account",
+                  callbackURL: redirectUrl,
                 }),
               );
             }}
@@ -101,7 +101,7 @@ export default function Form() {
               await betterAuthFunctionWrapper(() =>
                 authClient.signIn.social({
                   provider: "google",
-                  callbackURL: "/account",
+                  callbackURL: redirectUrl,
                 }),
               );
             }}
