@@ -13,6 +13,7 @@ export default async function SessionsPage() {
   const sessions = await auth.api.listSessions({ headers: headersList });
   return (
     <div className="flex flex-col gap-2 p-2 w-full max-w-4xl mx-auto">
+      <h1 className="text-4xl">Sessions</h1>
       {sessions.map((session) => {
         const parsedUserAgent = new UAParser(
           session.userAgent || "",
